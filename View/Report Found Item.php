@@ -71,6 +71,16 @@
                                   class="input"></textarea>
                     </td>
                 </tr>
+            <tr>
+                <td>
+                    <label for="image" class="label">Upload Image</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="image" id="image" class="input">
+                </td>
+            </tr>
             </table>
             <button type="submit" class="submit-btn">Submit</button>
             <button type="reset" class="reset-btn">Reset</button>

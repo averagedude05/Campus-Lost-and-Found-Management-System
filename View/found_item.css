@@ -12,7 +12,8 @@ h2 {
 }
 
 .container {
-    width: 900px;
+    width: 1000px;
+    height:800px;
     margin: 0 auto;
     display: flex;
     background-color: white;
@@ -46,11 +47,11 @@ h2 {
     font-size: 14px;
     margin-bottom: 16px;
 }
-textarea.input {
+textarea {
     height: 130px;
     resize: none;
 }
-select.input {
+select {
     background-color: white;
 }
 .submit-btn {
@@ -58,6 +59,7 @@ select.input {
     color: white;
     padding: 10px 20px;
     border-radius: 7px;
+    margin-top: 20px;
     margin-left:50px;
     border:none;
 }
@@ -67,5 +69,10 @@ select.input {
     padding: 10px 20px;
     border: none;
     border-radius: 7px;
-    margin-left:20px;
+    margin-left:50px;
+}
+.image{
+    width: 450px;
+    height: auto;
+    overflow: hidden;
 }
