@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Found Item</title>
+        <link rel="stylesheet" href="edit item.css">
+    </head>
+    <body>
+        <form>
+            <h2>Update Found Item</h2>
+            <div class="dashboard">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="item_name">Item Name:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="item_name" name="item_name" class="input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="date">Date Found:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" id="date" name="date" class="input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="found_location">Location:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="found_location" name="found_location" class="input">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="description">Description:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id="description" name="description"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="image-section">
+                    <label>Current Image:</label>
+                    <div class="change-img">
+                        <p>Uploaded Image</p>
+                    </div>
+                    <label for="image" id="replaceBtn">Replace Image</label>
+                    <input type="file" id="image" name="image">
+                </div>
+            </div>
+            <input type="button" name="cancelBtn" id="cancelBtn" value="Cancel">
+            <input type="submit" name="saveBtn" id="saveBtn" value="Save Changes">
+        </form>
+    </body>
+</html>
+

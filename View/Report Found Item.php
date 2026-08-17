@@ -5,13 +5,28 @@
 </head>
 
 <body>
-    <h2>Item Information</h2>
+<form>
+    <h2>Report an Item</h2>
     <div class="container">
         <div class="image">
             <img src="found_item.jpg" alt="Found Item">
         </div>
         <div class="form">
             <table>
+                <tr>
+                    <td>
+                        <label for="itemtype" class="label">I want to report an item:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="itemtype" id="itemtype" class="input">
+                            <option selected disabled hidden></option>
+                            <option value="lost">Lost Item</option>
+                            <option value="found">Found Item</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <label for="itemnametxt" class="label">Item Name</label>
@@ -65,10 +80,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <textarea placeholder="Enter description of the item"
-                                  id="description"
-                                  name="description"
-                                  class="input"></textarea>
+                        <textarea placeholder="Enter description of the item"id="description"></textarea>
                     </td>
                 </tr>
             <tr>
@@ -83,7 +95,8 @@
             </tr>
             </table>
             <button type="submit" class="submit-btn">Submit</button>
-            <button type="reset" class="reset-btn">Reset</button>
+            <button type="button" class="cancel-btn">Cancel</button>
         </div>
     </div>
+</form>
 </body>

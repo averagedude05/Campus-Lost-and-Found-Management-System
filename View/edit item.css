@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+    color: #172033;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+form {
+    background-color: white;
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+.dashboard {
+    display: flex;
+    gap: 40px;
+}
+table {
+    width: 450px;
+    border-collapse: collapse;
+}
+td {
+    padding: 8px 0;
+}
+label {
+    font-weight: bold;
+    color: #344054;
+}
+.input,textarea {
+    width: 350px;
+    padding: 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+textarea {
+    
+    height: 130px;
+    resize: none;
+}
+.image-section {
+    width: 250px;
+}
+.change-img {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+#replaceBtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    font-size: 13.3333px;
+}   
+#image {
+    display: none;
+}
+#cancelBtn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    margin-left: 20px;
+}
+#saveBtn { 
+    background-color: green; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 7px; 
+    margin-left: 10px; 
+}

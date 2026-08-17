@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+    color: #172033;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dashboard {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 969px;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    background-color: #f5f7fa;
+    padding: 12px;
+}
+
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e0e0e0;
+   
+}
+
+.edit-btn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+}
+
+.withdraw-btn {
+    background-color: red;
+    color: white;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+}
+.view-btn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+}
+.new_itm {
+    width: 1000px;
+    margin: 0 auto 20px;
+    text-align: right;
+}
+
+.new_itm input {
+    background-color: #1479c9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    text-align: right;
+}
+.header {
+    width: 1000px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+}
+
+#backBtn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 7px;
+}
+.header h2 {
+    margin: 0 auto;
+}
