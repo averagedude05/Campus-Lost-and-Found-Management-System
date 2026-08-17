@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Manage Item Reports</title>
+
+    
+      
+   
+  <link rel="stylesheet" href="ManageItemReports.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1 id="systemTitle">
+            Campus Lost & Found
+        </h1>
+
+        <p id="pageTitle">
+            Manage Item Reports
+        </p>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="box">
+
+            <div class="topBar">
+
+                <div>
+                    <h2 id="reportHeading">
+                        Manage Item Reports
+                    </h2>
+
+                    <p id="reportDescription">
+                        Review, edit and remove lost or found item reports.
+                    </p>
+                </div>
+
+                <button
+                    id="backButton"
+                    name="backButton"
+                    class="backButton"
+                    type="button">
+
+                    ← Back
+
+                </button>
+
+            </div>
+
+
+            <!-- Search and Filter Area -->
+
+            <div class="searchArea">
+
+                <input
+                    type="text"
+                    id="reportSearch"
+                    name="reportSearch"
+                    class="search"
+                    placeholder="Search item or user..."
+                >
+
+                <button
+                    id="searchButton"
+                    name="searchButton"
+                    class="searchButton"
+                    type="button">
+
+                    🔍 Search
+
+                </button>
+
+
+                <select
+                    id="reportType"
+                    name="reportType">
+
+                    <option value="">
+                        All Types
+                    </option>
+
+                    <option value="lost">
+                        Lost
+                    </option>
+
+                    <option value="found">
+                        Found
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="reportStatus"
+                    name="reportStatus">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="approved">
+                        Approved
+                    </option>
+
+                    <option value="rejected">
+                        Rejected
+                    </option>
+
+                    <option value="closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Reports Table -->
+
+            <table id="reportsTable">
+
+                <tr>
+
+                    <th>Item</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+
+                <!-- Report 1 -->
+
+                <tr id="reportRow1">
+
+                    <td>
+                        Black Wallet
+                    </td>
+
+                    <td>
+                        Rahim Ahmed
+                    </td>
+
+                    <td>
+                        Lost
+                    </td>
+
+                    <td>
+                        10 Aug 2026
+                    </td>
+
+                    <td>
+
+                        <span class="pending">
+                            Pending
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            id="viewReport1"
+                            name="viewReport1"
+                            class="viewButton"
+                            type="button">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            id="editReport1"
+                            name="editReport1"
+                            class="editButton"
+                            type="button">
+
+                            Edit
+
+                        </button>
+
+
+                        <button
+                            id="deleteReport1"
+                            name="deleteReport1"
+                            class="deleteButton"
+                            type="button">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- Report 2 -->
+
+                <tr id="reportRow2">
+
+                    <td>
+                        Scientific Calculator
+                    </td>
+
+                    <td>
+                        Nadia Islam
+                    </td>
+
+                    <td>
+                        Found
+                    </td>
+
+                    <td>
+                        8 Aug 2026
+                    </td>
+
+                    <td>
+
+                        <span class="approved">
+                            Approved
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            id="viewReport2"
+                            name="viewReport2"
+                            class="viewButton"
+                            type="button">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            id="editReport2"
+                            name="editReport2"
+                            class="editButton"
+                            type="button">
+
+                            Edit
+
+                        </button>
+
+
+                        <button
+                            id="deleteReport2"
+                            name="deleteReport2"
+                            class="deleteButton"
+                            type="button">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- Report 3 -->
+
+                <tr id="reportRow3">
+
+                    <td>
+                        Student ID Card
+                    </td>
+
+                    <td>
+                        Karim Hasan
+                    </td>
+
+                    <td>
+                        Lost
+                    </td>
+
+                    <td>
+                        5 Aug 2026
+                    </td>
+
+                    <td>
+
+                        <span class="pending">
+                            Pending
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            id="viewReport3"
+                            name="viewReport3"
+                            class="viewButton"
+                            type="button">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            id="editReport3"
+                            name="editReport3"
+                            class="editButton"
+                            type="button">
+
+                            Edit
+
+                        </button>
+
+
+                        <button
+                            id="deleteReport3"
+                            name="deleteReport3"
+                            class="deleteButton"
+                            type="button">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
