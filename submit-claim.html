@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Claim</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial;
+            background-color: #f5f6fa;
+            color: #1f2937;
+            overflow: hidden;
+        }
+
+        .page {
+            width: 70%;
+            margin: 40px auto;
+        }
+
+        .top {
+            text-align: center;
+            position: relative;
+            height: 70px;
+        }
+
+        .back {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            padding: 8px 15px;
+            background-color: #d1d5db;
+            color: #1f2937;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        .buttons {
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+        }
+
+        .cancel {
+            background-color: #e74c3c;
+        }
+
+        .submit {
+            background-color: #1683c7;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="top">
+
+        <a href="dashboard.html" class="back">
+            ← Back
+        </a>
+
+        <h1>Submit Claim</h1>
+
+    </div>
+
+
+    <div class="form-box">
+
+        <form>
+
+            <label>Item Name</label>
+            <input type="text" name="item">
+
+
+            <label>Category</label>
+
+            <select name="category">
+                <option>Select Category</option>
+                <option>Wallet</option>
+                <option>ID Card</option>
+                <option>Calculator</option>
+                <option>Mobile</option>
+                <option>Others</option>
+            </select>
+
+
+            <label>Location</label>
+            <input type="text" name="location">
+
+
+            <label>Lost Date</label>
+            <input type="date" name="date">
+
+
+            <label>Additional Information</label>
+            <textarea name="info"></textarea>
+
+
+            <div class="buttons">
+
+                <a href="dashboard.html">
+                    <button type="button" class="cancel">
+                        Cancel
+                    </button>
+                </a>
+
+                <button type="submit" class="submit">
+                    Submit Claim
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
