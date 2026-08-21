@@ -95,7 +95,7 @@
             </tr>
             </table>
             <button type="submit" class="submit-btn">Submit</button>
-            <button type="button" class="cancel-btn">Cancel</button>
+            <a href="Found Item Dashboard.php" class="cancel-btn"> Cancel</a>
         </div>
     </div>
 </form>

@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Update Found Item</title>
-        <link rel="stylesheet" href="edit item.css">
+        <title>View Item</title>
+        <link rel="stylesheet" href="view item.css">
     </head>
     <body>
         <form>
-            <h2>Update Found Item</h2>
+            <h2>View Item</h2>
             <div class="dashboard">
                 <table>
                     <tbody>
@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <label for="date">Date Found:</label>
+                                <label for="date">Claim Date:</label>
                             </td>
                         </tr>
                         <tr>
@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" id="found_location" name="found_location" class="input">
+                                <input type="text" id="lost_location" name="lost_location" class="input">
                             </td>
                         </tr>
                         <tr>
@@ -58,8 +58,6 @@
                     <div class="change-img">
                         <p>Uploaded Image</p>
                     </div>
-                    <label for="image" id="replaceBtn">Replace Image</label>
-                    <input type="file" id="image" name="image">
                 </div>
             </div>
             <a href="Found Item Dashboard.php" id="cancelBtn">Cancel</a>

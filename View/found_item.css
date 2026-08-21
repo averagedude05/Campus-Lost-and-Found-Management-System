@@ -71,6 +71,9 @@ select {
     border: none;
     border-radius: 7px;
     margin-left:50px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
 }
 .image{
     width: 450px;

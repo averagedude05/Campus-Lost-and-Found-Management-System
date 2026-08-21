@@ -54,35 +54,19 @@ textarea {
     text-align: center;
     padding-top: 20px;
     margin-top: 10px;
-}
-#replaceBtn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border-radius: 7px;
-    border: none;
-    font-size: 13.3333px;
-}   
+}  
 #image {
     display: none;
 }
 #cancelBtn {
     background-color: #d0d5dd;
     color: #172033;
-    padding: 10px 20px;
+    padding: 7px 16px;
     border: none;
     border-radius: 7px;
-    margin-left: 20px;
+    margin-left: 100px;
     text-decoration: none;
     display: inline-block;
-}
-#saveBtn { 
-    background-color: green; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 7px; 
-    margin-left: 10px; 
+    font-family: Arial, sans-serif;
+    font-size: 15.3333px;
 }

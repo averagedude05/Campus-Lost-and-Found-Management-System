@@ -7,10 +7,9 @@
 <body>
 <form>
     <div class="header">
-        <input type="button" id="backBtn" value="← Back">
         <h2>Dashboard</h2>
     </div>
-    <div class="new_itm"><input type="button" name="new_itm" value="+ Report Item"></div>
+    <div class="new_itm"><a href="Report Found Item.php" id="reportBtn">+Report New Item</a></div>
     <div class="dashboard">
 
         <div class="section">
@@ -30,8 +29,8 @@
                     <td>Aug 10, 2026</td>
                     <td>Pending</td>
                     <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="withdraw-btn">Withdraw</button>
+                            <a href="Edit item.php" class="edit-btn">Edit</a>
+                            <input type="button" class="withdraw-btn" value="Withdraw"></input>
                     </td>
                 </tr>
             </table>
@@ -51,7 +50,7 @@
                     <td>Aug 11, 2026</td>
                     <td>Pending</td>
                     <td>
-                        <button class="view-btn">Edit</button>
+                        <a href="View Item.php" class="view-btn">View</a>
                     </td>
                 </tr>
             </table>

@@ -50,6 +50,10 @@ td {
     padding: 7px 12px;
     border: none;
     border-radius: 7px;
+    font-size: 15.3333px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
 }
 
 .withdraw-btn {
@@ -58,6 +62,7 @@ td {
     padding: 7px 12px;
     border: none;
     border-radius: 7px;
+    font-size: 15.3333px;
 }
 .view-btn {
     background-color: #d0d5dd;
@@ -65,6 +70,10 @@ td {
     padding: 7px 12px;
     border: none;
     border-radius: 7px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 15.3333px;
 }
 .new_itm {
     width: 1000px;
@@ -72,13 +81,17 @@ td {
     text-align: right;
 }
 
-.new_itm input {
+#reportBtn {
     background-color: #1479c9;
     color: white;
-    padding: 10px 20px;
+    padding: 7px 16px;
     border: none;
     border-radius: 7px;
     text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 15.3333px;
 }
 .header {
     width: 1000px;
@@ -87,13 +100,6 @@ td {
     align-items: center;
 }
 
-#backBtn {
-    background-color: #d0d5dd;
-    color: #172033;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 7px;
-}
 .header h2 {
     margin: 0 auto;
 }
