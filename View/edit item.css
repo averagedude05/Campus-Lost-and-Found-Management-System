@@ -10,42 +10,37 @@ h2 {
 }
 form {
     background-color: white;
-    width: 800px;
+    width: 1000px;
     margin: 0 auto;
     padding: 30px;
     border-radius: 12px;
 }
 .dashboard {
     display: flex;
-    gap: 40px;
+    gap: 50px;
 }
 table {
-    width: 450px;
+    width: 500px;
     border-collapse: collapse;
-}
-td {
-    padding: 8px 0;
 }
 label {
     font-weight: bold;
     color: #344054;
 }
 .input,textarea {
-    width: 350px;
+    width: 250px;
     padding: 10px;
     border: 1px solid #d0d5dd;
     border-radius: 7px;
     font-size: 14px;
-    box-sizing: border-box;
+    margin-bottom: 5px;
 }
 textarea {
     
     height: 130px;
     resize: none;
 }
-.image-section {
-    width: 250px;
-}
+
 .change-img {
     width: 250px;
     height: 250px;
@@ -85,4 +80,24 @@ textarea {
     border: none; 
     border-radius: 7px; 
     margin-left: 10px; 
+}
+.error {
+    color: red;
+    font-size: 11px;
+    margin-left: 5px;
+}
+#imgemptyerr {
+     margin-left: 0px;
+    display: inline-block;
+    margin-top: 10px;
+}
+#submitBtn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    margin-left: 20px;  
+    display: inline-block;
+    font-size: 15px;
 }

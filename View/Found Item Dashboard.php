@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<form>
+<form action="save_item.php" method="POST" onsubmit="return validateForm()">
     <div class="header">
         <h2>Dashboard</h2>
     </div>
