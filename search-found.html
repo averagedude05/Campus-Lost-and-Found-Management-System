@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Found Item</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial;
+            background-color: #f5f6fa;
+            color: #1f2937;
+            overflow: hidden;
+        }
+
+        .page {
+            width: 85%;
+            margin: 35px auto;
+        }
+
+        .top {
+            height: 80px;
+            position: relative;
+            text-align: center;
+        }
+
+        .back {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            padding: 8px 15px;
+            background-color: #d1d5db;
+            color: #1f2937;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 10px 20px;
+            background-color: #1683c7;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+        }
+
+        .search-btn {
+            padding: 11px 20px;
+            background-color: #1683c7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        .filters {
+            background-color: #f1f3f7;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        select {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            margin-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #f1f3f7;
+            text-align: left;
+            padding: 12px;
+        }
+
+        td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .view {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 7px 12px;
+            border-radius: 6px;
+        }
+
+        .status {
+            background-color: #d1fae5;
+            color: #166534;
+            padding: 5px 9px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="top">
+
+        <a href="dashboard.html" class="back">
+            ← Back
+        </a>
+
+        <h1>Search Found Item</h1>
+
+    </div>
+
+
+    <div class="card">
+
+        <form action="../Controller/Search Found Item Controller.php"
+              method="post"
+              onsubmit="return validateform(this)">
+
+            <input
+                type="text"
+                class="search-box"
+                name="search"
+                placeholder="Search found item..."
+            >
+
+            <span class="error" id="searcherr"></span>
+
+            <br><br>
+
+            <button class="search-btn" type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Filters</h2>
+
+        <div class="filters">
+
+            Category:
+
+            <select name="category">
+                <option>All Category</option>
+                <option>Wallet</option>
+                <option>ID Card</option>
+                <option>Calculator</option>
+            </select>
+
+
+            Location:
+
+            <select name="location">
+                <option>All Location</option>
+                <option>Library</option>
+                <option>D Building</option>
+                <option>Campus</option>
+            </select>
+
+
+            Status:
+
+            <select name="status">
+                <option>All Status</option>
+                <option>Approved</option>
+                <option>Pending</option>
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Found Items</h2>
+
+        <table>
+
+            <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>Black Wallet</td>
+                <td>Others</td>
+                <td>Aug 10, 2026</td>
+                <td>Library</td>
+
+                <td>
+                    <span class="status">Approved</span>
+                </td>
+
+                <td>
+                    <button class="view">
+                        View Details
+                    </button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>ID Card</td>
+                <td>ID Card</td>
+                <td>Aug 07, 2026</td>
+                <td>D Building</td>
+
+                <td>
+                    <span class="status">Approved</span>
+                </td>
+
+                <td>
+                    <button class="view">
+                        View Details
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="Search Found Item.js"></script>
+
+</body>
+</html>
