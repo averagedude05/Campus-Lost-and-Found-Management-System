@@ -1,28 +1,30 @@
-      var replaceImage=false;
-      document.getElementById("replaceBtn").onclick = function() {
-        replaceImage = true;
-    };
 function validateform(p) {
     var name = p.item_name.value;
     var date = p.date.value;
     var location = p.location.value;
     var description = p.description.value;
-    var image = p.image.value;
+    var category = p.category_id.value;
 
     var nameerr = document.getElementById("item_nameerr");
     var dateerr = document.getElementById("dateerr");
     var locationerr = document.getElementById("locationerr");
     var descriptionerr = document.getElementById("descriptionerr");
+    var categoryerr = document.getElementById("categoryerr");
     var imageerr = document.getElementById("imgemptyerr");
-  
     var flag = true;
-
     if (name === "") {
         flag = false;
         nameerr.innerHTML = "Please enter item name properly";
     }
     else {
     nameerr.innerHTML = "";
+    }
+    if (category === "") {
+        flag = false;
+        categoryerr.innerHTML = "Please select a category";
+    }
+    else {
+    categoryerr.innerHTML = "";
     }
     if (date === "") {
         flag = false;
@@ -44,21 +46,6 @@ function validateform(p) {
     }
     else{
        descriptionerr.innerHTML=""; 
-    }
-    if (image === "") {
-        flag = false;
-        imageerr.innerHTML = "Please upload an image";
-    }
-    else{
-        imageerr.innerHTML="";
-    }
-
-    if (replaceImage && image === "") {
-    flag = false;
-    imageerr.innerHTML = "Please select an image";
-    }
-    else {
-        imageerr.innerHTML = "";
     }
     return flag;
 }

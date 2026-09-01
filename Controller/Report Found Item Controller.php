@@ -1,22 +1,9 @@
 <?php
+require "../Model/queries.php";
+require "ImageFileUpload.php";
 
 session_start();
 
-$_SESSION['typeErrMsg'] = "";
-$_SESSION['nameErrMsg'] = "";
-$_SESSION['categoryErrMsg'] = "";
-$_SESSION['dateErrMsg'] = "";
-$_SESSION['locationErrMsg'] = "";
-$_SESSION['descriptionErrMsg'] = "";
-$_SESSION['imageErrMsg'] = "";
-$_SESSION['globalErrMsg'] = "";
-$_SESSION['itemtype'] = "";
-$_SESSION['itemnametxt'] = "";
-$_SESSION['itemcatagory'] = "";
-$_SESSION['founddate'] = "";
-$_SESSION['foundlocation'] = "";
-$_SESSION['description'] = "";
-$_SESSION['image'] = "";
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $itemtype = htmlspecialchars($_POST['itemtype']);
     $itemnametxt = htmlspecialchars($_POST['itemnametxt']);
@@ -24,7 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $founddate = htmlspecialchars($_POST['founddate']);
     $foundlocation = htmlspecialchars($_POST['foundlocation']);
     $description = htmlspecialchars($_POST['description']);
+
+
     $flag = true;
+
     if (empty($itemtype)) {
         $flag = false;
         $_SESSION['typeErrMsg'] = "Please select an item type";
@@ -32,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['itemtype'] = $itemtype;
     }
+
     if (empty($itemnametxt)) {
         $flag = false;
         $_SESSION['nameErrMsg'] = "Please enter item name properly";
@@ -39,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['itemnametxt'] = $itemnametxt;
     }
+
     if (empty($itemcatagory)) {
         $flag = false;
         $_SESSION['categoryErrMsg'] = "Please select a category";
@@ -46,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['itemcatagory'] = $itemcatagory;
     }
+
     if (empty($founddate)) {
         $flag = false;
         $_SESSION['dateErrMsg'] = "Please enter the date properly";
@@ -53,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['founddate'] = $founddate;
     }
+
     if (empty($foundlocation)) {
         $flag = false;
         $_SESSION['locationErrMsg'] = "Please enter the location properly";
@@ -60,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['foundlocation'] = $foundlocation;
     }
+
     if (empty($description)) {
         $flag = false;
         $_SESSION['descriptionErrMsg'] = "Please enter the description properly";
@@ -67,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['description'] = $description;
     }
+
     if (empty($_FILES['image']['name'])) {
         $flag = false;
         $_SESSION['imageErrMsg'] = "Please upload an image";
@@ -74,17 +70,40 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['image'] = $_FILES['image']['name'];
     }
-    if ($flag) {
-        $_SESSION['itemtype'] = "";
-        $_SESSION['itemnametxt'] = "";
-        $_SESSION['itemcatagory'] = "";
-        $_SESSION['founddate'] = "";
-        $_SESSION['foundlocation'] = "";
-        $_SESSION['description'] = "";
-        $_SESSION['image'] = "";
 
-        header("Location: ../View/Found Item Dashboard.php");
-        exit();
+    if ($flag) {
+        $_SESSION['userid']=getUserId();
+        $result=imageUpload('image');
+        if ($result['file_path']==0){
+            $_SESSION['imageErrMsg']=$result['msg'];
+            header("Location:../View/Report Found Item.php");
+            exit();
+        }
+        else{
+            if($_SESSION['itemtype']==='lost'){
+            insertNewLostItem($_SESSION['userid'],$itemcatagory,$description,$founddate,$foundlocation,$result['file_path'],$itemnametxt);
+            $_SESSION['itemtype'] = "";
+            $_SESSION['itemnametxt'] = "";
+            $_SESSION['itemcatagory'] = "";
+            $_SESSION['founddate'] = "";
+            $_SESSION['foundlocation'] = "";
+            $_SESSION['description'] = "";
+            $_SESSION['imageErrMsg']="";
+            header("Location: ../View/Report Found Item.php");
+            exit();
+            }
+            insertNewFoundItem($_SESSION['userid'],$itemcatagory,$founddate,$foundlocation,$description,$result['file_path'],$itemnametxt);
+            $_SESSION['itemtype'] = "";
+            $_SESSION['itemnametxt'] = "";
+            $_SESSION['itemcatagory'] = "";
+            $_SESSION['founddate'] = "";
+            $_SESSION['foundlocation'] = "";
+            $_SESSION['description'] = "";
+            $_SESSION['imageErrMsg']="";
+            header("Location: ../View/Report Found Item.php");
+            exit();
+        }
+        
     }
     else {
 

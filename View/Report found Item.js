@@ -19,30 +19,50 @@ function validateform(p) {
         flag = false;
         typeerr.innerHTML = "Please select an item type";
     }
+    else{
+        typeerr.innerHTML = "";
+    }
     if (name === "") {
         flag = false;
         nameerr.innerHTML = "Please fill up the name properly";
+    }
+    else{
+          nameerr.innerHTML = "";
     }
     if (category === "") {
         flag = false;
         categoryerr.innerHTML = "Please select a category";
     }
+    else{
+        categoryerr.innerHTML="";
+    }
     if (date === "") {
         flag = false;
         dateerr.innerHTML = "Please fill up the date";
+    }
+    else{
+        dateerr.innerHTML="";
     }
     if (location === "") {
         flag = false;
         locationerr.innerHTML = "Please fill up the location properly";
     }
+    else{
+        locationerr.innerHTML="";
+    }
     if (description === "") {
         flag = false;
         descriptionerr.innerHTML = "Please fill up the description properly";
+    }
+    else{
+        descriptionerr.innerHTML="";
     }
     if (image === "") {
         flag = false;
         imageerr.innerHTML = "Please upload an image";
     }
-
-    return flag;
+    else{
+        imageerr.innerHTML="";
+    }
+  return flag;
 }

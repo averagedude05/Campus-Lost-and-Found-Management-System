@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+require "../Model/queries.php";
+$lost_id = $_GET['id'];
+$result = getLostItemDetails($lost_id);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +23,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" id="item_name" name="item_name" class="input">
+                                <input type="text"
+                                       id="item_name"
+                                       name="item_name"
+                                       class="input"
+                                       value="<?php echo $result['item_name']; ?>"
+                                       readonly>
                             </td>
                         </tr>
                         <tr>
@@ -28,17 +38,27 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="date" id="date" name="date" class="input">
+                                <input type="date"
+                                       id="date"
+                                       name="date"
+                                       class="input"
+                                       value="<?php echo $result['date_lost']; ?>"
+                                       readonly>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="found_location">Location:</label>
+                                <label for="lost_location">Location:</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" id="lost_location" name="lost_location" class="input">
+                                <input type="text"
+                                       id="lost_location"
+                                       name="lost_location"
+                                       class="input"
+                                       value="<?php echo $result['location']; ?>"
+                                       readonly>
                             </td>
                         </tr>
                         <tr>
@@ -48,7 +68,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <textarea id="description" name="description"></textarea>
+                                <textarea id="description"
+                                          name="description"
+                                          readonly><?php echo $result['description']; ?></textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -56,12 +78,14 @@
                 <div class="image-section">
                     <label>Current Image:</label>
                     <div class="change-img">
-                        <p>Uploaded Image</p>
+                        <img src="../Controller/uploads/<?php echo basename($result['image_url']); ?>"
+                             alt="Failed to load image"
+                             style="width: 250px; height: 250px; object-fit: contain; border-radius: 7px;">
                     </div>
                 </div>
             </div>
-            <a href="Found Item Dashboard.php" id="cancelBtn">Cancel</a>
+            <a href="Found Item Dashboard.php" id="cancelBtn">Back</a>
         </form>
+
     </body>
 </html>
-

@@ -1,3 +1,7 @@
+<?php require "../Model/queries.php";
+session_start();
+$_SESSION['userid']=getUserId();
+?>
 <!DOCTYPE html>
 <head>
     <title>Dashboard</title>
@@ -21,17 +25,23 @@
                     <th>Category</th>
                     <th>Date</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th> Action</th>
+                    
                 </tr>
-                <tr>
-                    <td>Black Wallet</td>
-                    <td>Others</td>
-                    <td>Aug 10, 2026</td>
-                    <td>Pending</td>
-                    <td>
-                            <a href="Edit item.php" class="edit-btn">Edit</a>
-                            <input type="button" class="withdraw-btn" value="Withdraw"></input>
-                    </td>
+                <?php 
+                    $reports= getAllReports( $_SESSION['userid']);
+                    foreach($reports as $rows){
+                    echo "<tr>";
+                    echo "<td>".$rows['item_name']."</td>";
+                    echo "<td>".$rows['category_name']."</td>";
+                    echo "<td>".$rows['date_found']."</td>";
+                    echo "<td>".$rows['status']."</td>";
+                    echo "<td><a href='Edit item.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a></td>";
+                    echo "</tr>";
+
+                    }
+                    
+                    ?>
                 </tr>
             </table>
         </div>
@@ -41,17 +51,27 @@
             <table>
                 <tr class="claimsHead">
                     <th>Item</th>
-                    <th>Claim Date</th>
+                    <th>Category</th>
+                    <th>Date</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th> Action</th>
+                    
                 </tr>
                 <tr>
-                    <td>Black Wallet</td>
-                    <td>Aug 11, 2026</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="View Item.php" class="view-btn">View</a>
-                    </td>
+                    <?php 
+                    $claims= getAllClaims( $_SESSION['userid']);
+                    foreach($claims as $rows){
+                    echo "<tr>";
+                    echo "<td>".$rows['item_name']."</td>";
+                    echo "<td>".$rows['category_name']."</td>";
+                    echo "<td>".$rows['date_lost']."</td>";
+                    echo "<td>".$rows['status']."</td>";
+                    echo "<td><a href='View Item.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
+                    echo "</tr>";
+
+                    }
+                    
+                    ?>
                 </tr>
             </table>
         </div>
