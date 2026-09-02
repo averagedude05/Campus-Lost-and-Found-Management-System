@@ -1,9 +1,14 @@
-
+<?php
+session_start();
+$result=$_SESSION['result'];
+$original_category_id= $_SESSION['category_id'];
+ $rows= $_SESSION['rows'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Found Item</title>
-    <link rel="stylesheet" href="../View/edit item.css">
+    <link rel="stylesheet" href="edit item.css">
 </head>
 <body>
     <form action="../Controller/Edit Item Controller.php" method="post" onsubmit="return validateform(this)" enctype="multipart/form-data">
@@ -154,7 +159,7 @@
 
     </form>
 
-   <script src="../View/Edit Item.js"></script>
+   <script src="Edit Item.js"></script>
 
 </body>
 

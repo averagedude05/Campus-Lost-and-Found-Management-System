@@ -1,6 +1,7 @@
-<?php require "../Model/queries.php";
+<?php
 session_start();
-$_SESSION['userid']=getUserId();
+$reports=$_SESSION['reports'];
+$claims =$_SESSION['claims'];
 ?>
 <!DOCTYPE html>
 <head>
@@ -9,11 +10,11 @@ $_SESSION['userid']=getUserId();
 </head>
 
 <body>
-<form action="save_item.php" method="POST" onsubmit="return validateForm()">
+<form>
     <div class="header">
         <h2>Dashboard</h2>
     </div>
-    <div class="new_itm"><a href="Report Found Item.php" id="reportBtn">+Report New Item</a></div>
+    <div class="new_itm"><a href="../Controller/Report Found Item Controller.php" id="reportBtn">+Report New Item</a></div>
     <div class="dashboard">
 
         <div class="section">
@@ -29,14 +30,13 @@ $_SESSION['userid']=getUserId();
                     
                 </tr>
                 <?php 
-                    $reports= getAllReports( $_SESSION['userid']);
                     foreach($reports as $rows){
                     echo "<tr>";
                     echo "<td>".$rows['item_name']."</td>";
                     echo "<td>".$rows['category_name']."</td>";
                     echo "<td>".$rows['date_found']."</td>";
                     echo "<td>".$rows['status']."</td>";
-                    echo "<td><a href='Edit item.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a></td>";
+                    echo "<td><a href='../Controller/Edit Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a></td>";
                     echo "</tr>";
 
                     }
@@ -59,14 +59,13 @@ $_SESSION['userid']=getUserId();
                 </tr>
                 <tr>
                     <?php 
-                    $claims= getAllClaims( $_SESSION['userid']);
                     foreach($claims as $rows){
                     echo "<tr>";
                     echo "<td>".$rows['item_name']."</td>";
                     echo "<td>".$rows['category_name']."</td>";
                     echo "<td>".$rows['date_lost']."</td>";
                     echo "<td>".$rows['status']."</td>";
-                    echo "<td><a href='View Item.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
+                   echo "<td><a href=../Controller/View Item Controller.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
                     echo "</tr>";
 
                     }

@@ -1,17 +1,44 @@
 <?php
+session_start();
 require "../Model/queries.php";
 require "ImageFileUpload.php";
+if($_SERVER['REQUEST_METHOD']=="GET"){
+    $_SESSION['categories']=getAllCategories();
 
-session_start();
+    $_SESSION['typeErrMsg']="";
+    $_SESSION['nameErrMsg']="";
+    $_SESSION['categoryErrMsg']="";
+    $_SESSION['dateErrMsg']="";
+    $_SESSION['locationErrMsg']="";
+    $_SESSION['descriptionErrMsg']="";
+    $_SESSION['imageErrMsg']="";
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    $_SESSION['itemtype']="";
+    $_SESSION['itemnametxt']="";
+    $_SESSION['itemcatagory']="";
+    $_SESSION['founddate']="";
+    $_SESSION['foundlocation']="";
+    $_SESSION['description']="";
+
+
+    header("Location:../View/Report Found Item.php");
+}
+elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
+    $_SESSION['typeErrMsg']="";
+    $_SESSION['nameErrMsg']="";
+    $_SESSION['categoryErrMsg']="";
+    $_SESSION['dateErrMsg']="";
+    $_SESSION['locationErrMsg']="";
+    $_SESSION['descriptionErrMsg']="";
+    $_SESSION['imageErrMsg']="";
+
     $itemtype = htmlspecialchars($_POST['itemtype']);
     $itemnametxt = htmlspecialchars($_POST['itemnametxt']);
     $itemcatagory = htmlspecialchars($_POST['itemcatagory']);
     $founddate = htmlspecialchars($_POST['founddate']);
     $foundlocation = htmlspecialchars($_POST['foundlocation']);
     $description = htmlspecialchars($_POST['description']);
-
+    
 
     $flag = true;
 
@@ -82,27 +109,28 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         else{
             if($_SESSION['itemtype']==='lost'){
             insertNewLostItem($_SESSION['userid'],$itemcatagory,$description,$founddate,$foundlocation,$result['file_path'],$itemnametxt);
-            $_SESSION['itemtype'] = "";
-            $_SESSION['itemnametxt'] = "";
-            $_SESSION['itemcatagory'] = "";
-            $_SESSION['founddate'] = "";
-            $_SESSION['foundlocation'] = "";
-            $_SESSION['description'] = "";
-            $_SESSION['imageErrMsg']="";
+            unset($_SESSION['itemtype']);
+            unset($_SESSION['itemnametxt']);
+            unset($_SESSION['itemcatagory']);
+            unset($_SESSION['founddate']);
+            unset($_SESSION['foundlocation']);
+            unset($_SESSION['description']);
+            unset($_SESSION['imageErrMsg']);
             header("Location: ../View/Report Found Item.php");
             exit();
             }
             insertNewFoundItem($_SESSION['userid'],$itemcatagory,$founddate,$foundlocation,$description,$result['file_path'],$itemnametxt);
-            $_SESSION['itemtype'] = "";
-            $_SESSION['itemnametxt'] = "";
-            $_SESSION['itemcatagory'] = "";
-            $_SESSION['founddate'] = "";
-            $_SESSION['foundlocation'] = "";
-            $_SESSION['description'] = "";
-            $_SESSION['imageErrMsg']="";
+            unset($_SESSION['itemtype']);
+            unset($_SESSION['itemnametxt']);
+            unset($_SESSION['itemcatagory']);
+            unset($_SESSION['founddate']);
+            unset($_SESSION['foundlocation']);
+            unset($_SESSION['description']);
+            unset($_SESSION['imageErrMsg']);
             header("Location: ../View/Report Found Item.php");
             exit();
         }
+
         
     }
     else {

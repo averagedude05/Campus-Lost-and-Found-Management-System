@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $found_id = $_SESSION['found_id'];
     $original_category_id = $_SESSION['category_id'];
 
-    $result = getDetails($found_id);
-    $rows = getAllCategories();
+    $_SESSION['result'] = getDetails($found_id);
+    $_SESSION['rows'] = getAllCategories();
 
-    require "../View/Edit item.php";
+    header("Location:../View/Edit item.php");
   
 
 }
@@ -86,7 +86,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             $result = imageUpload('new_image');
             if ($result['file_path'] == 0) {
                 $_SESSION['imageErrMsg'] = $result['msg'];
-                header("Location: ../Controller/Edit Item Controller.php?id=".$found_id."&category_id=".$category_id);
+                header("Location: ../View/Edit Item.php?id=".$found_id."&category_id=".$category_id);
                 exit();
             }
             else {
