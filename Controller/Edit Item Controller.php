@@ -123,8 +123,8 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
         unset($_SESSION['image']);
         unset($_SESSION['found_id']);
         unset($_SESSION['category_id']);
-        header("Location: ../View/Found Item Dashboard.php");
-        exit();
+        header("Location:../Controller/Found Item Dashboard Contoller.php");
+	exit();
     }
     else {
         $_SESSION['globalErrMsg'] = "Operation failed";

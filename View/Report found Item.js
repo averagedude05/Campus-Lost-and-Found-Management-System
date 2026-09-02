@@ -50,12 +50,12 @@ function validateform(p) {
     else{
         locationerr.innerHTML="";
     }
-    if (description === "") {
+    if (description.trim() === "") {
         flag = false;
         descriptionerr.innerHTML = "Please fill up the description properly";
     }
-    else{
-        descriptionerr.innerHTML="";
+    else {
+        descriptionerr.innerHTML = "";
     }
     if (image === "") {
         flag = false;

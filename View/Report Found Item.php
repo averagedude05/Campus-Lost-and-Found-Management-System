@@ -56,7 +56,6 @@
                     <td class="field">
                         <select name="itemcatagory" id="itemcatagory" class="input">
                             <?php
-                            // $rows = getAllCategories();
                                 foreach($categories as $row){
                                     if($row['category_id'] == $_SESSION['itemcatagory']){
                                         echo "<option value='".$row['category_id']."' selected>".$row['category_name']."</option>";
@@ -90,9 +89,7 @@
                 </tr>
                 <tr>
                     <td class="field">
-                        <input type="text" name="foundlocation" id="foundlocation" class="input"value="<?php  
-                        echo isset($_SESSION["foundlocation"])?$_SESSION['foundlocation']:""; 
-                        ?>">
+                        <input type="text" name="foundlocation" id="foundlocation" class="input"value="<?php echo isset($_SESSION["foundlocation"])?$_SESSION['foundlocation']:"";?>">
                         <span class="error" id="locationerr"><?php echo isset($_SESSION["locationErrMsg"])?$_SESSION["locationErrMsg"]:""?></span>
                     </td>
                 </tr>

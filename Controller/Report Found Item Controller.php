@@ -97,7 +97,6 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
     else {
         $_SESSION['image'] = $_FILES['image']['name'];
     }
-
     if ($flag) {
         $_SESSION['userid']=getUserId();
         $result=imageUpload('image');
@@ -109,6 +108,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
         else{
             if($_SESSION['itemtype']==='lost'){
             insertNewLostItem($_SESSION['userid'],$itemcatagory,$description,$founddate,$foundlocation,$result['file_path'],$itemnametxt);
+            header("Location: ../Controller/Found Item Dashboard Contoller.php");
             unset($_SESSION['itemtype']);
             unset($_SESSION['itemnametxt']);
             unset($_SESSION['itemcatagory']);
@@ -116,8 +116,8 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
             unset($_SESSION['foundlocation']);
             unset($_SESSION['description']);
             unset($_SESSION['imageErrMsg']);
-            header("Location: ../View/Report Found Item.php");
-            exit();
+            header("Location: ../Controller/Found Item Dashboard Contoller.php");
+	        exit();
             }
             insertNewFoundItem($_SESSION['userid'],$itemcatagory,$founddate,$foundlocation,$description,$result['file_path'],$itemnametxt);
             unset($_SESSION['itemtype']);
@@ -127,7 +127,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
             unset($_SESSION['foundlocation']);
             unset($_SESSION['description']);
             unset($_SESSION['imageErrMsg']);
-            header("Location: ../View/Report Found Item.php");
+            header("Location: ../Controller/Found Item Dashboard Contoller.php");
             exit();
         }
 

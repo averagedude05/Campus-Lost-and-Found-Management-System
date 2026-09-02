@@ -15,12 +15,16 @@ function insertNewFoundItem($user_id, $category_id, $date_found, $location, $des
 
         if ($stmt->execute()) {
             //echo "New record created successfully";
+             header("Location: ../Controller/Found Item Dashboard Contoller.php");
+
            
         } else {
             echo "Error: " . $stmt->error;
         }
 
         $stmt->close();
+       
+        exit();
 
     } else {
         echo "Error: " . $conn->error;
@@ -74,7 +78,9 @@ function insertNewLostItem($user_id, $category_id, $description, $date_lost, $lo
         );
 
         if ($stmt->execute()) {
-            echo "Lost item inserted successfully";
+            header("Location: ../Controller/Found Item Dashboard Contoller.php");
+            exit();
+
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -90,7 +96,8 @@ function getAllReports($userId){
     global $conn;
     $sql="select f.found_id,f.item_name,c.category_id,c.category_name,f.date_found,f.status
     from found_item f join category c on f.category_id=c.category_id
-    where user_id=".$userId;
+    where user_id=".$userId."
+    order by f.found_id desc";
     $rows=array();
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
@@ -100,7 +107,7 @@ function getAllReports($userId){
         return $rows;
     }
     else{
-        echo "Error";
+        return array();
 
     }
 }
@@ -108,7 +115,8 @@ function getAllClaims($userId){
      global $conn;
     $sql="select l.lost_id,l.item_name,c.category_id,c.category_name,l.date_lost,l.status
     from lost_item l join category c on l.category_id=c.category_id
-    where user_id=".$userId;
+    where user_id=".$userId."
+    order by f.found_id desc";
     $rows=array();
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
@@ -118,7 +126,7 @@ function getAllClaims($userId){
         return $rows;
     }
     else{
-        echo "Error";
+        return array();
 
     }
 }
@@ -177,7 +185,9 @@ function updateRequest($user_id, $category_id, $description, $date_found, $locat
         );
 
         if ($stmt->execute()) {
-            echo "Item updated successfully";
+            header("Location: ../Controller/Found Item Dashboard Contoller.php");
+            exit();
+
         } else {
             echo "Error: " . $stmt->error;
         }

@@ -65,7 +65,7 @@ $claims =$_SESSION['claims'];
                     echo "<td>".$rows['category_name']."</td>";
                     echo "<td>".$rows['date_lost']."</td>";
                     echo "<td>".$rows['status']."</td>";
-                   echo "<td><a href=../Controller/View Item Controller.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
+                    echo "<td><a href='../Controller/View Item Controller.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
                     echo "</tr>";
 
                     }

@@ -5,8 +5,8 @@ $_SESSION['userid']=getUserId();
 
 $_SESSION['reports']= getAllReports( $_SESSION['userid']);
 $_SESSION['claims']= getAllClaims( $_SESSION['userid']);
-header("Location:../View/Found Item Dashboard.php");
+header("Location: ../Controller/Found Item Dashboard Contoller.php");
 
 
 
-?>
+?> 
