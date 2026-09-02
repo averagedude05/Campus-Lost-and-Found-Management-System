@@ -1,16 +1,9 @@
-<?php session_start(); 
-$_SESSION['found_id'] = $_GET['id'];
-$_SESSION['category_id'] = $_GET['category_id'];
 
-require "../Model/queries.php";
-$found_id = $_SESSION['found_id'];
-$original_category_id = $_SESSION['category_id'];
-$result = getDetails($found_id);?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Found Item</title>
-    <link rel="stylesheet" href="edit item.css">
+    <link rel="stylesheet" href="../View/edit item.css">
 </head>
 <body>
     <form action="../Controller/Edit Item Controller.php" method="post" onsubmit="return validateform(this)" enctype="multipart/form-data">
@@ -42,33 +35,23 @@ $result = getDetails($found_id);?>
 
                     <tr>
                         <td>
-
                             <select id="category" name="category_id" class="input">
-
                                 <?php
-
-                                $rows = getAllCategories();
-
+                               // $rows = getAllCategories();
                                 foreach($rows as $row){
-
                                     if($row['category_id'] == $original_category_id){
 
                                         echo "<option value='".$row['category_id']."' selected>".$row['category_name']."</option>";
 
                                     }
                                     else{
-
                                         echo "<option value='".$row['category_id']."'>".$row['category_name']."</option>";
-
                                         }
-
                                 }
-
                                 ?>
-
                             </select>
 
-                            <span class="error" id="category_nameerr">
+                            <span class="error" id="categoryerr">
                                 <?php echo isset($_SESSION['categoryErrMsg']) ? $_SESSION['categoryErrMsg'] : ""; ?>
                             </span>
 
@@ -102,8 +85,7 @@ $result = getDetails($found_id);?>
                     <tr>
                         <td>
 
-                            <input type="text" id="location" name="location" class="input" value="<?php echo $result['location']; ?>">
-
+                           <input type="text" id="location" name="location" class="input" value="<?php echo $result['location']; ?>">
                             <span class="error" id="locationerr">
                                 <?php echo isset($_SESSION['locationErrMsg']) ? $_SESSION['locationErrMsg'] : ""; ?>
                             </span>
@@ -166,13 +148,13 @@ $result = getDetails($found_id);?>
             <?php echo isset($_SESSION['globalErrMsg']) ? $_SESSION['globalErrMsg'] : ""; ?>
         </span>
 
-        <a href="Found Item Dashboard.php" id="cancelBtn">Cancel</a>
+        <a href="../View/Found Item Dashboard.php" id="cancelBtn">Cancel</a>
 
         <input type="submit" id="submitBtn" value="Submit">
 
     </form>
 
-    <script src="Edit Item.js"></script>
+   <script src="../View/Edit Item.js"></script>
 
 </body>
 

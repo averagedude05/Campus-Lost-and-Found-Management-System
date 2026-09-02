@@ -1,11 +1,33 @@
-
 <?php
 session_start();
 require "../Model/queries.php";
 require "ImageFileUpload.php";
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    $_SESSION['item_nameErrMsg'] = "";
+    $_SESSION['dateErrMsg'] = "";
+    $_SESSION['globalErrMsg'] = "";
+    $_SESSION['locationErrMsg'] = "";
+    $_SESSION['descriptionErrMsg'] = "";
+    $_SESSION['imageErrMsg'] = "";
+    $_SESSION['categoryErrMsg'] = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $_SESSION['found_id'] = $_GET['id'];
+    $_SESSION['category_id'] = $_GET['category_id'];
 
+    $found_id = $_SESSION['found_id'];
+    $original_category_id = $_SESSION['category_id'];
+
+    $result = getDetails($found_id);
+    $rows = getAllCategories();
+
+    require "../View/Edit item.php";
+  
+
+}
+elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
+   
+    require_once "../Model/queries.php";
+    require_once "ImageFileUpload.php";
     $_SESSION['item_nameErrMsg'] = "";
     $_SESSION['dateErrMsg'] = "";
     $_SESSION['globalErrMsg'] = "";
@@ -15,13 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['categoryErrMsg'] = "";
 
     $found_id = $_SESSION['found_id'];
+    
 
     // Field sanitization
     $item_name = htmlspecialchars($_POST['item_name']);
     $date = htmlspecialchars($_POST['date']);
     $location = htmlspecialchars($_POST['location']);
     $description = htmlspecialchars($_POST['description']);
-    $category_id = htmlspecialchars($_POST['category_id']);
+    $category_id = $_POST['category_id'];
     $flag = true;
     //business logic
     if (empty($item_name)) {
@@ -57,17 +80,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['categoryErrMsg'] = "Please choose a category";
     }
     if ($flag) {
+      
         if (!empty($_FILES['new_image']['name'])) {
             $_SESSION['image'] = $_FILES['new_image']['name'];
             $result = imageUpload('new_image');
-
             if ($result['file_path'] == 0) {
-
                 $_SESSION['imageErrMsg'] = $result['msg'];
-
-                header("Location: ../View/Edit item.php?id=".$found_id."&category_id=".$_SESSION['category_id']);
+                header("Location: ../Controller/Edit Item Controller.php?id=".$found_id."&category_id=".$category_id);
                 exit();
-
             }
             else {
                 updateRequest(
@@ -80,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $item_name,
                     $found_id
                 );
-
             }
         }
         else {
@@ -95,18 +114,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $item_name,
                 $found_id
             );
-
         }
-        $_SESSION['item_name'] = "";
-        $_SESSION['date'] = "";
-        $_SESSION['location'] = "";
-        $_SESSION['description'] = "";
-        $_SESSION['image'] = "";
-        $_SESSION['found_id']="";
-        $_SESSION['category_id']="";
+     
+        unset($_SESSION['item_name']);
+        unset( $_SESSION['date'] );
+        unset($_SESSION['location']);
+        unset( $_SESSION['description']);
+        unset($_SESSION['image']);
+        unset($_SESSION['found_id']);
+        unset($_SESSION['category_id']);
         header("Location: ../View/Found Item Dashboard.php");
         exit();
-
     }
     else {
         $_SESSION['globalErrMsg'] = "Operation failed";
