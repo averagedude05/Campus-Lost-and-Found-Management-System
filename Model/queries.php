@@ -34,7 +34,7 @@ function insertNewFoundItem($user_id, $category_id, $date_found, $location, $des
 }
 function getUserId(){
     global $conn;
-    $sql= "select user_id from Users where name='John'";
+    $sql= "select user_id from Users where user_id=".$_SESSION['user_id'];
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
         $row=mysqli_fetch_assoc($result);
@@ -61,8 +61,8 @@ function getAllCategories(){
 }
 function insertNewLostItem($user_id, $category_id, $description, $date_lost, $location, $image_url,$name){
    global $conn;
-    $sql = "INSERT INTO lost_item (user_id, category_id, description, date_lost, location, image_url, item_name)
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "insert into lost_item (user_id, category_id, description, date_lost, location, image_url, item_name)
+            values (?, ?, ?, ?, ?, ?, ?)";
 
     if ($stmt = $conn->prepare($sql)) {
 
@@ -116,7 +116,7 @@ function getAllClaims($userId){
     $sql="select l.lost_id,l.item_name,c.category_id,c.category_name,l.date_lost,l.status
     from lost_item l join category c on l.category_id=c.category_id
     where user_id=".$userId."
-    order by f.found_id desc";
+    order by l.lost_id desc";
     $rows=array();
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
@@ -170,7 +170,7 @@ function getSelectedCategory($category_id){
 function updateRequest($user_id, $category_id, $description, $date_found, $location, $image_url, $name, $found_id){
     global $conn;
 
-    $sql = "UPDATE found_item SET user_id=?, category_id=?, description=?, date_found=?, location=?, image_url=?, item_name=? WHERE found_id=".$found_id;
+    $sql = "update found_item set user_id=?, category_id=?, description=?, date_found=?, location=?, image_url=?, item_name=? where found_id=".$found_id;
 
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param(
