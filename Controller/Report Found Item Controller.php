@@ -98,7 +98,6 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION['image'] = $_FILES['image']['name'];
     }
     if ($flag) {
-        $_SESSION['userid']=getUserId();
         $result=imageUpload('image');
         if ($result['file_path']==0){
             $_SESSION['imageErrMsg']=$result['msg'];

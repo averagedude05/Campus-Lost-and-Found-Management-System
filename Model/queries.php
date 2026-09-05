@@ -30,7 +30,7 @@ function insertNewFoundItem($user_id, $category_id, $date_found, $location, $des
 }
 function getUserId(){
     global $conn;
-    $sql= "select user_id from Users where user_id=1";
+    $sql= "select user_id from Users where user_id=".$_SESSION["user_id"];
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
         $row=mysqli_fetch_assoc($result);

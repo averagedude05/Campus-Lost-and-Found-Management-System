@@ -117,11 +117,11 @@
                     </td>
                 </tr>
             </table>
-<?php
-if (isset($_SESSION['globalErrMsg'])) {
-    echo "<p style='color: red; font-weight: bold;'>" . $_SESSION['globalErrMsg'] . "</p>";
-}
-?>
+               <?php
+            if (isset($_SESSION['globalErrMsg'])) {
+                echo "<p style='color: red; font-weight: bold;'>" . $_SESSION['globalErrMsg'] . "</p>";
+            }
+            ?>
             <input type="submit" value="Submit" class="submit-btn">
             <a href="Found Item Dashboard.php" class="cancel-btn">Cancel</a>
         </div>
