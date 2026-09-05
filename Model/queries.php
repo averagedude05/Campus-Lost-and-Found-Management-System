@@ -14,17 +14,13 @@ function insertNewFoundItem($user_id, $category_id, $date_found, $location, $des
             "iisssss",$user_id,$category_id,$date_found,$location,$description,$image,$name);
 
         if ($stmt->execute()) {
-            //echo "New record created successfully";
-             header("Location: ../Controller/Found Item Dashboard Contoller.php");
-
-           
         } else {
             echo "Error: " . $stmt->error;
         }
 
         $stmt->close();
        
-        exit();
+        
 
     } else {
         echo "Error: " . $conn->error;
@@ -34,7 +30,7 @@ function insertNewFoundItem($user_id, $category_id, $date_found, $location, $des
 }
 function getUserId(){
     global $conn;
-    $sql= "select user_id from Users where user_id=".$_SESSION['user_id'];
+    $sql= "select user_id from Users where user_id=1";
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
         $row=mysqli_fetch_assoc($result);
@@ -78,9 +74,7 @@ function insertNewLostItem($user_id, $category_id, $description, $date_lost, $lo
         );
 
         if ($stmt->execute()) {
-            header("Location: ../Controller/Found Item Dashboard Contoller.php");
-            exit();
-
+            
         } else {
             echo "Error: " . $stmt->error;
         }

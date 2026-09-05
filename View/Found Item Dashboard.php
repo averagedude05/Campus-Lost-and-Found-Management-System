@@ -1,7 +1,7 @@
 <?php
 session_start();
-$reports=$_SESSION['reports'];
-$claims =$_SESSION['claims'];
+$reports=isset($_SESSION['reports'])?$_SESSION['reports']:[];
+$claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
 ?>
 <!DOCTYPE html>
 <head>
@@ -30,6 +30,7 @@ $claims =$_SESSION['claims'];
                     
                 </tr>
                 <?php 
+
                     foreach($reports as $rows){
                     echo "<tr>";
                     echo "<td>".$rows['item_name']."</td>";
