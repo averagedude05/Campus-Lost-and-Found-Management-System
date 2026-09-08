@@ -4,10 +4,8 @@ require "../Model/queries.php";
 $_SESSION['userid']=1;
 
 $_SESSION['reports']= getAllReports( $_SESSION['userid']);
-$_SESSION['claims']= getAllClaims( $_SESSION['userid']);
-header("Location: ../View/Found Item Dashboard.php");
+$_SESSION['claims'] = getAllClaimRequest( $_SESSION['userid']);
 
-var_dump($_SESSION['reports']);
-var_dump($_SESSION['claims']);
+header("Location: ../View/Found Item Dashboard.php");
 
 ?> 

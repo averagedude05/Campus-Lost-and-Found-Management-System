@@ -1,6 +1,6 @@
 <?php
 session_start();
-$details=$_SESSION['item_details'];
+$details=$_SESSION['claim_details'];//add isset here
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,36 +27,50 @@ $details=$_SESSION['item_details'];
                         </tr>
                         <tr>
                             <td>
+                                <label for="date">Found Date:</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" id="date" name="date" class="input"
+                                       value="<?php echo $details['date_found']; ?>" readonly>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
                                 <label for="date">Claim Date:</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="date" id="date" name="date" class="input"
-                                       value="<?php echo $details['date_lost']; ?>" readonly>
+                                       value="<?php echo $details['claim_date']; ?>" readonly>
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td>
+                                <label for="found_location">Location:</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="lost_location">Location:</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" id="lost_location" name="lost_location" class="input" 
+                                <input type="text" id="found_location" name="found_location" class="input" 
                                 value="<?php echo $details['location']; ?>"readonly>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="description">Description:</label>
+                                <label for="description">Additional Information:</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                               <textarea id="description" name="description" readonly><?php echo $details['description']; ?></textarea>
+                               <textarea id="description" name="description" readonly><?php echo $details['proof_details']; ?></textarea>
                             </td>
-                        </tr>
+                        </tr>   
                     </tbody>
                 </table>
                 <div class="image-section">

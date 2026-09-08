@@ -2,6 +2,7 @@
 session_start();
 $reports=isset($_SESSION['reports'])?$_SESSION['reports']:[];
 $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -43,7 +44,7 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
                     }
                     
                     ?>
-                </tr>
+              
             </table>
         </div>
 
@@ -51,10 +52,10 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
             <h3>My Claims</h3>
             <table>
                 <tr class="claimsHead">
-                    <th>Item</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Status</th>
+                    <th>Claim Id</th>
+                    <th>Item name</th>
+                    <th>Claim Date</th>
+                    <th>Claim Status</th>
                     <th> Action</th>
                     
                 </tr>
@@ -62,11 +63,12 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
                     <?php 
                     foreach($claims as $rows){
                     echo "<tr>";
+                    echo "<td>".$rows['claim_id']."</td>";
                     echo "<td>".$rows['item_name']."</td>";
-                    echo "<td>".$rows['category_name']."</td>";
-                    echo "<td>".$rows['date_lost']."</td>";
-                    echo "<td>".$rows['status']."</td>";
-                    echo "<td><a href='../Controller/View Item Controller.php?id=".$rows['lost_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a></td>";
+                    //echo "<td>".$rows['category_name']."</td>";
+                    echo "<td>".$rows['claim_date']."</td>";
+                    echo "<td>".$rows['claim_status']."</td>";
+                    echo "<td>"."<a href='../Controller/View Item Controller.php?id=".$rows['claim_id']."' class='view-btn'>View</a>";
                     echo "</tr>";
 
                     }

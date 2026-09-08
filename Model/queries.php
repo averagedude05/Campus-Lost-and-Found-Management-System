@@ -105,6 +105,26 @@ function getAllReports($userId){
 
     }
 }
+function getAllClaimRequest($userId){
+    global $conn;
+    $sql="select cr.claim_id, cr.user_id, cr.found_id, cr.proof_details, cr.claim_date, cr.claim_status, f.item_name 
+    from claim_request cr
+    join found_item f on cr.found_id = f.found_id
+    where cr.user_id=".$userId."
+    order by cr.claim_id desc";
+    $rows=array();
+    $result=mysqli_query($conn,$sql);
+    if(mysqli_num_rows($result)>0){
+        while($row=mysqli_fetch_assoc($result)){
+            $rows[]=$row;
+        }
+        return $rows;
+    }
+    else{
+        return array();
+
+    }
+}
 function getAllClaims($userId){
      global $conn;
     $sql="select l.lost_id,l.item_name,c.category_id,c.category_name,l.date_lost,l.status
@@ -136,7 +156,24 @@ function getDetails($id){
     }
 
 }
+function getClaimItemDetails($id){
+    global $conn;
 
+    $sql = "select cr.proof_details,cr.claim_date,cr.claim_status,cr.found_id,f.item_name,f.location,f.date_found,f.image_url
+    from claim_request cr
+    join found_item f
+    on cr.found_id=f.found_id
+    where cr.claim_id=".$id;
+
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result)>0){
+        return mysqli_fetch_assoc($result);
+    }
+    else{
+        echo "error";
+    }
+}
 function getLostItemDetails($id){
     global $conn;
 
@@ -152,14 +189,14 @@ function getLostItemDetails($id){
     }
 }
 
-function getSelectedCategory($category_id){
-    $sql="select category_name from category where category_id=".$category_id;
-    global $conn;
-    $result=mysqli_query($conn,$sql);
-    if(mysqli_num_rows($result)>0){
-        return $result=mysqli_fetch_assoc($result);
-    }
-}
+// function getSelectedCategory($category_id){
+//     $sql="select category_name from category where category_id=".$category_id;
+//     global $conn;
+//     $result=mysqli_query($conn,$sql);
+//     if(mysqli_num_rows($result)>0){
+//         return $result=mysqli_fetch_assoc($result);
+//     }
+// }
 
 function updateRequest($user_id, $category_id, $description, $date_found, $location, $image_url, $name, $found_id){
     global $conn;

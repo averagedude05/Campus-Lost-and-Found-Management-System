@@ -123,7 +123,7 @@
             }
             ?>
             <input type="submit" value="Submit" class="submit-btn">
-            <a href="Found Item Dashboard.php" class="cancel-btn">Cancel</a>
+            <a href="../Controller/Found Item Dashboard Contoller.php" class="cancel-btn">Cancel</a>
         </div>
     </div>
 </form>
