@@ -86,7 +86,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             $result = imageUpload('new_image');
             if ($result['file_path'] == 0) {
                 $_SESSION['imageErrMsg'] = $result['msg'];
-                header("Location: ../View/Edit Item.php?id=".$found_id."&category_id=".$category_id);
+                header("Location: ../View/Edit Item.php");
                 exit();
             }
             else {
