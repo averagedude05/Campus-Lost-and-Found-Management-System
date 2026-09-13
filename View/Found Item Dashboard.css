@@ -28,7 +28,7 @@ h3 {
 }
 
 table {
-    width: 969px;
+    width: 940px;
     border-collapse: collapse;
 }
 
@@ -41,7 +41,6 @@ th {
 td {
     padding: 15px 12px;
     border-bottom: 1px solid #e0e0e0;
-   
 }
 
 .edit-btn {
@@ -54,6 +53,7 @@ td {
     text-decoration: none;
     display: inline-block;
     font-family: Arial, sans-serif;
+    margin-right: 8px;
 }
 
 .withdraw-btn {
@@ -64,6 +64,7 @@ td {
     border-radius: 7px;
     font-size: 15.3333px;
 }
+
 .view-btn {
     background-color: #d0d5dd;
     color: #172033;
@@ -74,7 +75,9 @@ td {
     display: inline-block;
     font-family: Arial, sans-serif;
     font-size: 15.3333px;
+    margin-left: 0;
 }
+
 .new_itm {
     width: 1000px;
     margin: 0 auto 20px;
@@ -93,6 +96,7 @@ td {
     font-family: Arial, sans-serif;
     font-size: 15.3333px;
 }
+
 .header {
     width: 1000px;
     margin: 0 auto 30px;
@@ -102,4 +106,14 @@ td {
 
 .header h2 {
     margin: 0 auto;
+}
+
+.action {
+    text-align: right;
+    padding-right: 65px;
+}
+
+.editviewbtn {
+    text-align: right;
+    padding-right: 30px;
 }

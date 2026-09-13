@@ -174,6 +174,7 @@ function getClaimItemDetails($id){
         echo "error";
     }
 }
+
 function getLostItemDetails($id){
     global $conn;
 
@@ -189,6 +190,20 @@ function getLostItemDetails($id){
     }
 }
 
+function getFoundItemDetails($id){
+    global $conn;
+
+    $sql = "select * from found_item where found_id=".$id;
+
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result)>0){
+        return mysqli_fetch_assoc($result);
+    }
+    else{
+        echo "error";
+    }
+}
 // function getSelectedCategory($category_id){
 //     $sql="select category_name from category where category_id=".$category_id;
 //     global $conn;

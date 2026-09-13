@@ -2,12 +2,14 @@
 session_start();
 $reports=isset($_SESSION['reports'])?$_SESSION['reports']:[];
 $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
+require "navbar.php";
 
 ?>
 <!DOCTYPE html>
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" href="Found Item Dashboard.css">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 
 <body>
@@ -15,7 +17,7 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
     <div class="header">
         <h2>Dashboard</h2>
     </div>
-    <div class="new_itm"><a href="../Controller/Report Found Item Controller.php" id="reportBtn">+Report New Item</a></div>
+    <!-- <div class="new_itm"><a href="../Controller/Report Found Item Controller.php" id="reportBtn">+Report New Item</a></div> -->
     <div class="dashboard">
 
         <div class="section">
@@ -27,8 +29,7 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
                     <th>Category</th>
                     <th>Date</th>
                     <th>Status</th>
-                    <th> Action</th>
-                    
+                   <th><div class="action">Action</div></th>
                 </tr>
                 <?php 
 
@@ -38,7 +39,12 @@ $claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
                     echo "<td>".$rows['category_name']."</td>";
                     echo "<td>".$rows['date_found']."</td>";
                     echo "<td>".$rows['status']."</td>";
-                    echo "<td><a href='../Controller/Edit Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a></td>";
+                    echo "<td>";
+                    echo "<div class='editviewbtn'>";
+                    echo "<a href='../Controller/Edit Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a>";
+                    echo "<a href='../Controller/View Found Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a>";
+                    echo "</div>";
+                    echo "</td>";
                     echo "</tr>";
 
                     }
