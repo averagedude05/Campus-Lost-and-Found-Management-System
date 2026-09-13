@@ -1,14 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname =   "lost and found management system";
-// Create connection
-$conn = mysqli_connect('127.0.0.1', $username, $password, $dbname);
+function connect() {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "lost and found management system";
 
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    return $conn;
 }
-//echo "Connected successfully";
 ?>
