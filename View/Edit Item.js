@@ -1,6 +1,6 @@
 
 function validateform(p) {
-    console.log("Edit Item.js is working");
+   
     var name = p.item_name.value;
     var date = p.date.value;
     var location = p.location.value;
