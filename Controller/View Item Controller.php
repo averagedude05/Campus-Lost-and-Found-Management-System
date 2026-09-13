@@ -1,6 +1,6 @@
 <?php 
 session_start();
- require "../Model/queries.php";
+ require "../Model/queries2.php";
  if($_SERVER['REQUEST_METHOD'] == 'GET'){
     $claim_id=$_GET['id'];
     //$category_id=$_GET['category_id'];

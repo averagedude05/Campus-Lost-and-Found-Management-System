@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../Model/queries.php";
+require "../Model/queries2.php";
 require "ImageFileUpload.php";
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $_SESSION['item_nameErrMsg'] = "";
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 }
 elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
    
-    require_once "../Model/queries.php";
+    require_once "../Model/queries2.php";
     require_once "ImageFileUpload.php";
     $_SESSION['item_nameErrMsg'] = "";
     $_SESSION['dateErrMsg'] = "";

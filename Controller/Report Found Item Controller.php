@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../Model/queries.php";
+require "../Model/queries2.php";
 require "ImageFileUpload.php";
 if($_SERVER['REQUEST_METHOD']=="GET"){
     $_SESSION['categories']=getAllCategories();
@@ -31,7 +31,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === "POST") {
     $_SESSION['locationErrMsg']="";
     $_SESSION['descriptionErrMsg']="";
     $_SESSION['imageErrMsg']="";
-    $_SESSION['userid']=1;
+    //$_SESSION['userid']=1;
 
     $itemtype = htmlspecialchars($_POST['itemtype']);
     $itemnametxt = htmlspecialchars($_POST['itemnametxt']);
