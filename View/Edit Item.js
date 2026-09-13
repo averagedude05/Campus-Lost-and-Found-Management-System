@@ -42,7 +42,6 @@ function validateform(p) {
     else{
         locationerr.innerHTML="";
     }
-    alert("Description = [" + p.description.value + "]");
     if (description === "") {
         flag = false;
         descriptionerr.innerHTML = "Please fill up the description properly";
