@@ -1,0 +1,293 @@
+<?php
+
+session_start();
+
+
+// Check if admin is logged in
+
+if (!isset($_SESSION['adminId'])) {
+
+    header("Location: login.php");
+
+    exit();
+
+}
+
+?>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title>Admin Dashboard - Campus Lost & Found</title>
+
+    <link rel="stylesheet" href="AdminDashboard.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="header">
+
+        <h1 id="systemTitle">
+            Campus Lost & Found Management System
+        </h1>
+
+        <p id="pageTitle">
+            Admin Dashboard
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="sidebar">
+
+
+            <h2>
+                Lost & Found
+            </h2>
+
+
+            <a
+                id="dashboardLink"
+                href="AdminDashboard.php">
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                id="reportsLink"
+                href="ManageItemReports.html">
+
+                Manage Item Reports
+
+            </a>
+
+
+            <a
+                id="claimsLink"
+                href="ManageClaimReq.html">
+
+                Manage Claim Requests
+
+            </a>
+
+
+            <a
+                id="usersLink"
+                href="manageUser.php">
+
+                Manage Users
+
+            </a>
+
+
+            <a
+                id="logoutLink"
+                href="../Controller/logoutController.php">
+
+                Logout
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="content">
+
+
+            <h2 id="welcomeMessage">
+
+                Welcome,
+
+                <?php
+
+                echo htmlspecialchars(
+                    $_SESSION['adminName']
+                );
+
+                ?>
+
+            </h2>
+
+
+            <p id="dashboardDescription">
+
+                Manage campus lost and found activities
+                from here.
+
+            </p>
+
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <p>
+                        Total Reports
+                    </p>
+
+                    <h2 id="totalReports">
+                        248
+                    </h2>
+
+                    <p>
+                        All item reports
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <p>
+                        Pending Claims
+                    </p>
+
+                    <h2 id="pendingClaims">
+                        17
+                    </h2>
+
+                    <p>
+                        Claims waiting for review
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <p>
+                        Active Users
+                    </p>
+
+                    <h2 id="activeUsers">
+                        1284
+                    </h2>
+
+                    <p>
+                        Registered users
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="activity">
+
+
+                <h2>
+                    Recent Activity
+                </h2>
+
+
+                <table id="recentActivityTable">
+
+
+                    <tr>
+
+                        <th>
+                            Item
+                        </th>
+
+                        <th>
+                            User
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td>
+                            Black Wallet
+                        </td>
+
+                        <td>
+                            Rahim Ahmed
+                        </td>
+
+                        <td>
+                            Lost
+                        </td>
+
+                        <td>
+
+                            <span class="status pending">
+                                Pending
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <td>
+                            Calculator
+                        </td>
+
+                        <td>
+                            Nadia Islam
+                        </td>
+
+                        <td>
+                            Found
+                        </td>
+
+                        <td>
+
+                            <span class="status approved">
+                                Approved
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
