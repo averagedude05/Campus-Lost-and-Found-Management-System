@@ -12,7 +12,8 @@ h2 {
 }
 
 .container {
-    width: 900px;
+    width: 1000px;
+    height:auto;
     margin: 0 auto;
     display: flex;
     background-color: white;
@@ -36,36 +37,74 @@ h2 {
     font-weight: bold;
     color: #344054;
     display: block;
-    margin-bottom:10px;
+    margin-top:10px;
 }
 .input {
-    width: 250px;
+    width: 350px;
     padding: 10px;
     border: 1px solid #d0d5dd;
     border-radius: 7px;
     font-size: 14px;
     margin-bottom: 16px;
 }
-textarea.input {
+textarea {
     height: 130px;
     resize: none;
+    width:350px;
 }
-select.input {
+select {
     background-color: white;
 }
 .submit-btn {
-    background-color: red;
+    background-color:green;
     color: white;
     padding: 10px 20px;
     border-radius: 7px;
+    margin-top: 20px;
     margin-left:50px;
     border:none;
 }
-.reset-btn {
+.cancel-btn {
     background-color: #d0d5dd;
     color: #172033;
     padding: 10px 20px;
     border: none;
     border-radius: 7px;
-    margin-left:20px;
+    margin-left:50px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+.image{
+    width: 450px;
+    height: auto;
+    overflow: hidden;
+}
+.field {
+    position: relative;
+}
+
+.error {
+    position: absolute;
+    left: 0;
+    margin-top:40px;
+    color: red;
+    font-size: 11px;
+}
+#descriptionerr{
+    margin-top:105px;
+}
+#imageerr{
+    margin-top:50px;
+}
+#description{
+    width: 350px;
+    height:80px;
+    padding: 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 14px;
+}
+#uploadimg{
+    margin-top:30px;
 }
