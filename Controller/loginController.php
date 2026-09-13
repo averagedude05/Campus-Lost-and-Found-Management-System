@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
 
         $user = mysqli_fetch_assoc($result);
 
-        $_SESSION['userid'] = $user['user_id'];
+        $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['phone'] = $user['phone'];

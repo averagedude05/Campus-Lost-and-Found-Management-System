@@ -91,7 +91,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             else {
                 updateRequest(
-                    $_SESSION['userid'],
+                    $_SESSION['user_id'],
                     $category_id,
                     $description,
                     $date,
@@ -105,7 +105,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
         else {
             $old_image = getDetails($found_id);
             updateRequest(
-                $_SESSION['userid'],
+                $_SESSION['user_id'],
                 $category_id,
                 $description,
                 $date,
