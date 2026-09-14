@@ -42,7 +42,6 @@ $type    = $_SESSION['view_type'] ?? '';
 </div>
 
 </body>
-=======
 <?php
 session_start();
 
