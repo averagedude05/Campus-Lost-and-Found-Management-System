@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+    color: #172033;
+}
+
+.page {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.top {
+    width: 1000px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+}
+
+.top h1 {
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+.back {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 7px 12px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15.3333px;
+}
+
+.section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 940px;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    background-color: #f5f7fa;
+    padding: 12px;
+}
+
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.view-btn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 15.3333px;
+    margin-right: 8px;
+}
+
+.claim-btn {
+    background-color: #1479c9;
+    color: white;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 15.3333px;
+}
