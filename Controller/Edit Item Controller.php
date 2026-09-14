@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $_SESSION['dateErrMsg'] = "";
     $_SESSION['globalErrMsg'] = "";
     $_SESSION['locationErrMsg'] = "";
-    $_SESSION['descriptionErrMsg'] = "";
+   // $_SESSION['descriptionErrMsg'] = "";
     $_SESSION['imageErrMsg'] = "";
     $_SESSION['categoryErrMsg'] = "";
 
@@ -32,7 +32,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['dateErrMsg'] = "";
     $_SESSION['globalErrMsg'] = "";
     $_SESSION['locationErrMsg'] = "";
-    $_SESSION['descriptionErrMsg'] = "";
+    //$_SESSION['descriptionErrMsg'] = "";
     $_SESSION['imageErrMsg'] = "";
     $_SESSION['categoryErrMsg'] = "";
 
@@ -68,13 +68,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
     else {
         $_SESSION['location'] = $location;
     }
-    if (empty($description)) {
-        $flag = false;
-        $_SESSION['descriptionErrMsg'] = "Please fill up the description properly";
-    }
-    else {
-        $_SESSION['description'] = $description;
-    }
+    $_SESSION['description'] = $description;
     if (empty($category_id)) {
         $flag = false;
         $_SESSION['categoryErrMsg'] = "Please choose a category";

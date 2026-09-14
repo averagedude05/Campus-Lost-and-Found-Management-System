@@ -109,9 +109,9 @@ $original_category_id= $_SESSION['category_id'];
 
                             <textarea id="description" name="description"><?php echo $result['description']; ?></textarea>
 
-                            <span class="error" id="descriptionerr">
+                            <!-- <span class="error" id="descriptionerr">
                                 <?php echo isset($_SESSION['descriptionErrMsg']) ? $_SESSION['descriptionErrMsg'] : ""; ?>
-                            </span>
+                            </span> -->
 
                         </td>
                     </tr>

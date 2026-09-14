@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../Model/queries1.php";
+require_once "../Model/queries.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $errors = [];
 
-    // Validation
+    
     if ($name === "") {
         $errors[] = "Please enter your full name.";
     }
@@ -39,14 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors[] = "Please enter your phone number.";
     }
 
-    // Check duplicate email
+    
     if (empty($errors)) {
         if (emailExists($email)) {
             $errors[] = "Email already exists.";
         }
     }
 
-    // Process Registration
+    
     if (empty($errors)) {
         if (registerUser($name, $email, $password, $phone, 'user')) {
             echo "<span class='success'>Registration successful! You can now <a href='../View/login.php'>log in</a>.</span>";
