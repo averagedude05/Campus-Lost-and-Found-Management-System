@@ -1,0 +1,88 @@
+<?php
+session_start();
+$reports=isset($_SESSION['reports'])?$_SESSION['reports']:[];
+$claims =isset($_SESSION['claims'])?$_SESSION['claims']:[];
+include "navbar.php";
+
+?>
+<!DOCTYPE html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="Found Item Dashboard.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+<form>
+    <div class="header">
+        <h2>Dashboard</h2>
+    </div>
+    <!-- <div class="new_itm"><a href="../Controller/Report Found Item Controller.php" id="reportBtn">+Report New Item</a></div> -->
+    <div class="dashboard">
+
+        <div class="section">
+            <h3>My Reports</h3>
+
+            <table>
+                <tr class="itemRow">
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                   <th><div class="action">Action</div></th>
+                </tr>
+                <?php 
+
+                    foreach($reports as $rows){
+                    echo "<tr>";
+                    echo "<td>".$rows['item_name']."</td>";
+                    echo "<td>".$rows['category_name']."</td>";
+                    echo "<td>".$rows['date_found']."</td>";
+                    echo "<td>".$rows['status']."</td>";
+                    echo "<td>";
+                    echo "<div class='editviewbtn'>";
+                    echo "<a href='../Controller/Edit Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='edit-btn'>Edit</a>";
+                    echo "<a href='../Controller/View Found Item Controller.php?id=".$rows['found_id']."&category_id=".$rows['category_id']."' class='view-btn'>View</a>";
+                    echo "</div>";
+                    echo "</td>";
+                    echo "</tr>";
+
+                    }
+                    
+                    ?>
+              
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>My Claims</h3>
+            <table>
+                <tr class="claimsHead">
+                    <th>Claim Id</th>
+                    <th>Item name</th>
+                    <th>Claim Date</th>
+                    <th>Claim Status</th>
+                    <th> Action</th>
+                    
+                </tr>
+                <tr>
+                    <?php 
+                    foreach($claims as $rows){
+                    echo "<tr>";
+                    echo "<td>".$rows['claim_id']."</td>";
+                    echo "<td>".$rows['item_name']."</td>";
+                    //echo "<td>".$rows['category_name']."</td>";
+                    echo "<td>".$rows['claim_date']."</td>";
+                    echo "<td>".$rows['claim_status']."</td>";
+                    echo "<td>"."<a href='../Controller/View Item Controller.php?id=".$rows['claim_id']."' class='view-btn'>View</a>";
+                    echo "</tr>";
+
+                    }
+                    
+                    ?>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+</body>

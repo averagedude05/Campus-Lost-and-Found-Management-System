@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    padding: 40px;
+    color: #172033;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+form {
+    background-color: white;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+.dashboard {
+    display: flex;
+    gap: 50px;
+}
+table {
+    width: 500px;
+    border-collapse: collapse;
+}
+label {
+    font-weight: bold;
+    color: #344054;
+}
+.input,textarea {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+textarea {
+    
+    height: 130px;
+    resize: none;
+}
+
+.change-img {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #d0d5dd;
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+#replaceBtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    font-size: 13.3333px;
+}   
+#image {
+    display: none;
+}
+#cancelBtn {
+    background-color: #d0d5dd;
+    color: #172033;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    margin-left: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+#saveBtn { 
+    background-color: green; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 7px; 
+    margin-left: 10px; 
+}
+.error {
+    color: red;
+    font-size: 11px;
+    margin-left: 5px;
+}
+#imgemptyerr {
+     margin-left: 0px;
+    display: inline-block;
+    margin-top: 10px;
+}
+#submitBtn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    margin-left: 20px;  
+    display: inline-block;
+    font-size: 15px;
+}
