@@ -9,7 +9,7 @@
     //original filename of the uploaded file
     $fileName=$_FILES["$name"]["name"];
     $basePath=$_FILES["$name"]["tmp_name"];
-    // Check if image file is a actual image or fake image
+    
     $check = getimagesize($_FILES["$name"]["tmp_name"]);
     if($check) {
         if(in_array($imageFileType,$allowedImageType)){
